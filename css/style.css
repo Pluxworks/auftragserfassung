@@ -104,9 +104,16 @@ body {
   border-radius: 50%;
 }
 
+.mid {
+	width: 650px;
+}
 
-.pinput {
-	width: 250px;
+.pinput-large {
+	width: 650px;
+}
+
+.pinput-middle {
+	width: 350px;
 }
 
 .pinput-small {
@@ -114,10 +121,10 @@ body {
 }
 
 .space {
-	margin-left: 5px;
-	margin-right: 5px;
+	
+	margin-right: 60px;
 }
-
+/*
 #taetigkeit {
 	width: 450px;
-}
+} */
