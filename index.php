@@ -51,16 +51,17 @@
         <div class="col-sm-3 col-md-2 sidebar">
 		<h3>Allgemein</h3>
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Aufwand eintragen <span class="sr-only">(aktuell)</span></a></li>
+            <li id="aeintragen" class="active"><a id="aeintragen" href="#">Aufwand eintragen <span class="sr-only">(aktuell)</span></a></li>
+			<li id="atabelle"><a id="atabelle" href="#">Aufwandstabelle</a></li>
           </ul>
 		  <h3>Administration</h3>
           <ul class="nav nav-sidebar">
-            <li><a href="">Mitarbeiter bearbeiten</a></li>
-            <li><a href="">Kunden bearbeiten</a></li>
+            <li><a href="#">Mitarbeiter bearbeiten</a></li>
+            <li><a href="#">Kunden bearbeiten</a></li>
           </ul>
 		  <h3>Statistik</h3>
           <ul class="nav nav-sidebar">
-            <li><a href="">Aufwandstabelle Gesamt</a></li>
+            <li><a href="#">Bönen</a></li>
           </ul>
         </div>
     
@@ -72,8 +73,8 @@
 				<h3>Neuen Aufwand eintragen</h3><br/>
 				<div class="form-group text-center center-block pinput-small">
 					<label for="datum">Datum</label>
-					<div class="input-append date" id="dp3" data-date="<?php echo date("d.m.Y");?>" data-date-format="dd-mm-yyyy">
-					<input class="form-control span2 text-center" size="16" type="text" value="<?php echo date("d/m/Y");?>" id="date">
+					<div class="input-append date" id="dp3" data-date="<?php echo date("m/d/Y");?>" data-date-format="mm-dd-yyyy">
+					<input class="form-control span2 text-center" size="16" type="text" value="<?php echo date("m/d/Y");?>" id="date">
 					<span class="add-on"><i class="icon-th"></i></span>
 					</div>
 				</div>
@@ -108,7 +109,7 @@
 				<label for="aufwand">Zeitaufwand in h</label>
 					<div id="test" class="input-group">
 					<div class="input-group-addon"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></div>
-					 <input type="text" class="form-control" id="aufwand" name="aufwand" placeholder="0,00">
+					 <input type="text" class="form-control bs-docs-popover" id="aufwand" name="aufwand" placeholder="0,00">
 					<div class="input-group-addon">h</div>
 					</div>
 				</div>
