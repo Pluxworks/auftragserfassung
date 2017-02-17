@@ -1,3 +1,7 @@
+<?php
+include_once("../sql/mysql_connect.php");
+?>
+
 <h3>Neuen Aufwand eintragen</h3><br/>
 				<div class="form-group text-center center-block pinput-small">
 					<label for="datum">Datum</label>
@@ -9,28 +13,32 @@
 				<div class="form-group text-center center-block pinput-middle">
 					<label for="bereich">Bereich</label>
 					<select class="form-control pinput" id="bereich" name="bereich">
-					  <option class="pinput">KD - Hardware</option>
-					  <option>KD - Software</option>
-					  <option>NW - Hardware</option>
-					  <option>NW - Software</option>
-					  <option>DV - Software</option>
+					  <?php
+						$sql_bereich = "SELECT * FROM bereich";
+						$result_bereich = mysqli_query($connection, $sql_bereich);
+						while($c = mysqli_fetch_array($result_bereich)) {
+							echo "<option value=\"" . $c["id"] . "\">" . $c["name"] . "</option>";
+						}
+					 ?>	
 					</select>
 				</div>
 				<div class="form-group text-center center-block pinput-middle">
 					<label for="kunde">Kunde</label>
 					<select class="form-control pinput" id="kunde" name="kunde">
-					  <option>Bönen</option>
-					  <option>UKBS</option>
-					  <option>NWL</option>
-					  <option>WFG</option>
-					  <option>GWA</option>
+					 <?php
+						$sql_kunde = "SELECT * FROM kunden";
+						$result_kunde = mysqli_query($connection, $sql_kunde);
+						while($c = mysqli_fetch_array($result_kunde)) {
+							echo "<option value=\"" . $c["id"] . "\">" . $c["kuerzel"] . "</option>";
+						}
+					 ?>		 
 					</select>
 				</div>
 				<div class="form-group text-center center-block pinput-middle">
 					<label for="vertrag">Vertragsfrage</label>
 					<select class="form-control center-block" id="vertrag" name="vertrag">
-					  <option>vertraglich abgedeckt</option>
-					  <option>nicht vertraglich abgedeckt</option>
+					  <option value="vertraglich abgedeckt">vertraglich abgedeckt</option>
+					  <option value="nicht vertraglich abgedeckt">nicht vertraglich abgedeckt</option>
 					</select>
 				</div>
 				<div class="form-group text-center center-block pinput-middle">
@@ -44,22 +52,29 @@
 				<div class="form-group text-center center-block pinput-middle">
 					<label for="mitarbeiter">Mitarbeiter</label>
 					<select class="form-control center-block" id="mitarbeiter" name="mitarbeiter">
-					  <option/>
-					  <option>Maximilian Wollmeiner</option>
-					  <option>Svenja Strohmenger</option>
-					  <option>Tobias Heß</option>
+					  select class="form-control pinput" id="kunde" name="kunde">
+					 <?php
+						$sql_mitarbeiter = "SELECT * FROM mitarbeiter";
+						$result_mitarbeiter= mysqli_query($connection, $sql_mitarbeiter);
+						while($c = mysqli_fetch_array($result_mitarbeiter)) {
+							echo "<option value=\"" . $c["id"] . "\">" . $c["name"] . "</option>";
+						}
+					 ?>	
 					</select>
 				</div>
-				<div class="form-group center-block pinput">
+				<div class="form-group center-block pinput-large">
 					<label for="taetigkeit">Beschreibung der Tätigkeit</label>
 					<textarea class="form-control" id="taetigkeit" placeholder="..." name="taetigkeit" rows="4"></textarea>
 				</div>
-				<div class="form-group center-block pinput">
-					<label for="taetigkeit">Kommentar</label>
-					<textarea class="form-control" id="taetigkeit" placeholder="..." name="taetigkeit" rows="4"></textarea>
+				<div class="form-group center-block pinput-large">
+					<label for="bemerkung">Bemerkung</label>
+					<textarea class="form-control" id="bemerkung" placeholder="..." name="bemerkung" rows="4"></textarea>
 				</div>
 				<div id="aufwandButtons" class="center-block">
 					<button id="aufwandsaveButton" class="btn btn-primary pinput-small" type="submit" name="speichern">speichern</button>
+				</div>
+				<div id="warningbox">
+				<!-- Hier werden Warnungen angezeigt -->
 				</div>
 
 
