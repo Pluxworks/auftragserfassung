@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -24,7 +23,9 @@
   </head>
 
   <body>
-
+	<?php
+		include_once("/sql/mysql_connect.php");
+	?>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -81,28 +82,32 @@
 				<div class="form-group text-center center-block pinput-middle">
 					<label for="bereich">Bereich</label>
 					<select class="form-control pinput" id="bereich" name="bereich">
-					  <option class="pinput">KD - Hardware</option>
-					  <option>KD - Software</option>
-					  <option>NW - Hardware</option>
-					  <option>NW - Software</option>
-					  <option>DV - Software</option>
+					  <?php
+						$sql_bereich = "SELECT * FROM bereich";
+						$result_bereich = mysqli_query($connection, $sql_bereich);
+						while($c = mysqli_fetch_array($result_bereich)) {
+							echo "<option value=\"" . $c["id"] . "\">" . $c["name"] . "</option>";
+						}
+					 ?>	
 					</select>
 				</div>
 				<div class="form-group text-center center-block pinput-middle">
 					<label for="kunde">Kunde</label>
 					<select class="form-control pinput" id="kunde" name="kunde">
-					  <option>Bönen</option>
-					  <option>UKBS</option>
-					  <option>NWL</option>
-					  <option>WFG</option>
-					  <option>GWA</option>
+					 <?php
+						$sql_kunde = "SELECT * FROM kunden";
+						$result_kunde = mysqli_query($connection, $sql_kunde);
+						while($c = mysqli_fetch_array($result_kunde)) {
+							echo "<option value=\"" . $c["id"] . "\">" . $c["kuerzel"] . "</option>";
+						}
+					 ?>		 
 					</select>
 				</div>
 				<div class="form-group text-center center-block pinput-middle">
 					<label for="vertrag">Vertragsfrage</label>
 					<select class="form-control center-block" id="vertrag" name="vertrag">
-					  <option>vertraglich abgedeckt</option>
-					  <option>nicht vertraglich abgedeckt</option>
+					  <option value="vertraglich abgedeckt">vertraglich abgedeckt</option>
+					  <option value="nicht vertraglich abgedeckt">nicht vertraglich abgedeckt</option>
 					</select>
 				</div>
 				<div class="form-group text-center center-block pinput-middle">
@@ -116,104 +121,33 @@
 				<div class="form-group text-center center-block pinput-middle">
 					<label for="mitarbeiter">Mitarbeiter</label>
 					<select class="form-control center-block" id="mitarbeiter" name="mitarbeiter">
-					  <option/>
-					  <option>Maximilian Wollmeiner</option>
-					  <option>Svenja Strohmenger</option>
-					  <option>Tobias Heß</option>
+					 <?php
+						$sql_mitarbeiter = "SELECT * FROM mitarbeiter";
+						$result_mitarbeiter= mysqli_query($connection, $sql_mitarbeiter);
+						while($c = mysqli_fetch_array($result_mitarbeiter)) {
+							echo "<option value=\"" . $c["id"] . "\">" . $c["name"] . "</option>";
+						}
+					 ?>	
 					</select>
 				</div>
-				<div class="form-group center-block pinput">
+				<div class="form-group center-block pinput-large">
 					<label for="taetigkeit">Beschreibung der Tätigkeit</label>
 					<textarea class="form-control" id="taetigkeit" placeholder="..." name="taetigkeit" rows="4"></textarea>
 				</div>
-				<div class="form-group center-block pinput">
-					<label for="taetigkeit">Kommentar</label>
-					<textarea class="form-control" id="taetigkeit" placeholder="..." name="taetigkeit" rows="4"></textarea>
+				<div class="form-group center-block pinput-large">
+					<label for="bemerkung">Bemerkung</label>
+					<textarea class="form-control" id="bemerkung" placeholder="..." name="bemerkung" rows="4"></textarea>
 				</div>
 				<div id="aufwandButtons" class="center-block">
 					<button id="aufwandsaveButton" class="btn btn-primary pinput-small" type="submit" name="speichern">speichern</button>
 				</div>
-			</div>
-		</div>
-	</div>
-	<!---
-	<div id="content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		
-		<div id="aufwandboxinhalt"class=" ">
-			<h3 class="text-center">Neuen Aufwand eintragen</h3><br/>
-			<div class="center-block row">
-				<div class="form-group text-center pinput pull-left space">
-					<label for="datum">Datum</label>
-					<div class="input-append date" id="dp3" data-date="<?php echo date("d.m.Y");?>" data-date-format="dd-mm-yyyy">
-					<input class="form-control pinput span2" size="16" type="text" value="<?php echo date("d/m/Y");?>" id="date">
-					<span class="add-on"><i class="icon-th"></i></span>
-					</div>
-				</div>
-				<div class="form-group text-center pinput pull-left space">
-					<label for="bereich">Bereich</label>
-					<select class="form-control pinput" id="bereich" name="bereich">
-					  <option>KD - Hardware</option>
-					  <option>KD - Software</option>
-					  <option>NW - Hardware</option>
-					  <option>NW - Software</option>
-					  <option>DV - Software</option>
-					</select>
-				</div>
-				<div class="form-group text-center center-block pull-left space">
-					<label for="kunde">Kunde</label>
-					<select class="form-control center-block pinput" id="kunde" name="kunde">
-					  <option>Bönen</option>
-					  <option>UKBS</option>
-					  <option>NWL</option>
-					  <option>WFG</option>
-					  <option>GWA</option>
-					</select>
-				</div>
-			</div>
-			<div class=" center-block row">
-				<div class="form-group text-center center-block  pull-left space">
-					<label for="vertrag">Vertragsfrage</label>
-					<select class="form-control center-block pinput" id="vertrag" name="vertrag">
-					  <option>vertraglich abgedeckt</option>
-					  <option>nicht vertraglich abgedeckt</option>
-					</select>
-				</div>
-				<div class="form-group text-center center-block pull-left space">
-				<label for="aufwand">Zeitaufwand in h</label>
-					 <input type="text" class="form-control pinput center-block" id="aufwand" name="aufwand" placeholder="Zeitaufwand">
-				</div>
-				<div class="form-group text-center center-block pull-left space">
-					<label for="mitarbeiter">Mitarbeiter</label>
-					<select class="form-control center-block pinput" id="mitarbeiter" name="mitarbeiter">
-					  <option/>
-					  <option>Maximilian Wollmeiner</option>
-					  <option>Svenja Strohmenger</option>
-					  <option>Tobias Heß</option>
-					</select>
-				</div>
-			</div>
-			<div class="center-block row">
-				<div class="form-group center-block pull-left space">
-					<label for="taetigkeit">Beschreibung der Tätigkeit</label>
-					<textarea class="form-control pinput" id="taetigkeit" placeholder="..." name="taetigkeit" rows="4"></textarea>
-				</div>
-				<div class="form-group center-block">
-					<label for="taetigkeit">Kommentar</label>
-					<textarea class="form-control pinput" id="taetigkeit" placeholder="..." name="taetigkeit" rows="4"></textarea>
-				</div>
-			</div>	
-			<div class="center-block row">	
-				<div id="aufwandButtons">
-					<button id="aufwandsaveButton" class="btn btn-primary center-block" type="submit" name="speichern">speichern</button>
-				</div>
 				<div id="warningbox">
-				<!-- Hier werden Warnungen angezeigt --/>
+				<!-- Hier werden Warnungen angezeigt -->
 				</div>
 			</div>
 		</div>
-		
 	</div>
-	-->
+	
 	</div>
     <!-- Bootstrap-JavaScript
     ================================================== -->
