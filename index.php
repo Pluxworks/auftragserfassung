@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Dashboard-Vorlage für Bootstrap</title>
+    <title>Auftragserfassung</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
 	<link href="./css/datepicker.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
   <body>
 	<?php
-		include_once("/sql/mysql_connect.php");
+		include_once("./sql/mysql_connect.php");
 	?>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
@@ -148,7 +148,7 @@
 		</div>
 	</div>
 	
-	</div>
+
     <!-- Bootstrap-JavaScript
     ================================================== -->
     <!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
