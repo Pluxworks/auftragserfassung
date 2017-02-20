@@ -52,7 +52,6 @@ include_once("../sql/mysql_connect.php");
 				<div class="form-group text-center center-block pinput-middle">
 					<label for="mitarbeiter">Mitarbeiter</label>
 					<select class="form-control center-block" id="mitarbeiter" name="mitarbeiter">
-					  select class="form-control pinput" id="kunde" name="kunde">
 					 <?php
 						$sql_mitarbeiter = "SELECT * FROM mitarbeiter";
 						$result_mitarbeiter= mysqli_query($connection, $sql_mitarbeiter);
