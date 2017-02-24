@@ -12,7 +12,7 @@
     <title>Auftragserfassung</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
-	<link href="./css/datepicker.css" rel="stylesheet">
+	<link href="./css/bootstrap-datepicker3.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
 
     <!-- Unterstützung für Media Queries und HTML5-Elemente in IE8 über HTML5 shim und Respond.js -->
@@ -74,10 +74,7 @@
 				<h3>Neuen Aufwand eintragen</h3><br/>
 				<div class="form-group text-center center-block pinput-small">
 					<label for="datum">Datum</label>
-					<div class="input-append date" id="dp3" data-date="<?php echo date("m/d/Y");?>" data-date-format="mm-dd-yyyy">
-					<input class="form-control span2 text-center" size="16" type="text" value="<?php echo date("m/d/Y");?>" id="date">
-					<span class="add-on"><i class="icon-th"></i></span>
-					</div>
+					<input type="text" class="form-control text-center" id="date" name="datum">
 				</div>
 				<div class="form-group text-center center-block pinput-middle">
 					<label for="bereich">Bereich</label>
@@ -152,9 +149,10 @@
     <!-- Bootstrap-JavaScript
     ================================================== -->
     <!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 	<script src="./js/bootstrap-datepicker.js"></script>
+	<script src="./js/bootstrap-datepicker.de.min.js"></script>
 	<script src="./js/functions.js"></script>
     
   </body>
