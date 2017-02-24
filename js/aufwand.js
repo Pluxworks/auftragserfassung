@@ -1,5 +1,11 @@
 $(function(){
-	$('#date').datepicker('language','de');
+	$('input#date').datepicker({
+		format: "dd.mm.yyyy",
+		todayBtn: "linked",
+		language: "de",
+		autoclose: true,
+		todayHighlight: true
+	});
 	
 	$( "input#aufwand" ).focusout(function() {
 		

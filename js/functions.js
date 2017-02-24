@@ -1,7 +1,14 @@
 
 
 $(function(){
-	$('#date').datepicker('language','de');
+	$('#date').datepicker({
+		format: "mm-dd-yyyy",
+		todayBtn: "linked",
+		language: "de",
+		autoclose: true,
+		todayHighlight: true
+	});
+
 	
 	$( "input#aufwand" ).focusout(function() {
 		
