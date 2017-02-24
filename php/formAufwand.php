@@ -5,9 +5,7 @@ include_once("../sql/mysql_connect.php");
 <h3>Neuen Aufwand eintragen</h3><br/>
 				<div class="form-group text-center center-block pinput-small">
 					<label for="datum">Datum</label>
-					<div class="input-append date" id="dp3" data-date="<?php echo date("m/d/Y");?>" data-date-format="mm-dd-yyyy">
-					<input class="form-control span2 text-center" size="16" type="text" value="<?php echo date("m/d/Y");?>" id="date">
-					<span class="add-on"><i class="icon-th"></i></span>
+					<input type="text" class="form-control text-center" id="date" name="datum">
 					</div>
 				</div>
 				<div class="form-group text-center center-block pinput-middle">
