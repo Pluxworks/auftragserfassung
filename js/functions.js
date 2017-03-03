@@ -2,7 +2,7 @@
 
 $(function(){
 	$('#date').datepicker({
-		format: "mm-dd-yyyy",
+		format: "dd.mm.yyyy",
 		todayBtn: "linked",
 		language: "de",
 		autoclose: true,
