@@ -18,7 +18,7 @@ include_once("../sql/mysql_connect.php");
         </thead>
 		<tbody>
 			<?php
-				$sql_aufwand_liste = "SELECT al.id as id, DATE_FORMAT(al.datum,'%d.%m.%Y') as datum, al.vertrag as vertrag, al.aufwand as aufwand, al.taetigkeit as taetigkeit, al.bemerkung as bemerkung, ku.kuerzel as kkuerzel, be.name as bname, mi.name as mname
+				$sql_aufwand_liste = "SELECT al.id as id, al.datum as datum, al.vertrag as vertrag, al.aufwand as aufwand, al.taetigkeit as taetigkeit, al.bemerkung as bemerkung, ku.kuerzel as kkuerzel, be.name as bname, mi.name as mname
 				FROM aufwand_liste al
 				JOIN kunden ku
 				ON al.kunde_id=ku.id
@@ -29,6 +29,7 @@ include_once("../sql/mysql_connect.php");
 				ORDER BY al.id";
 				$result_aufwand_liste = mysqli_query($connection, $sql_aufwand_liste);
 				while($c = mysqli_fetch_array($result_aufwand_liste)) {
+					echo "<a id=\"" . $c["id"] . "\" href=\"# " . $c["id"] .  "\">";
 					echo "<tr id=\"" . $c["id"] . "\">";
 					echo "<td id=\"" . $c["id"] . "\">". $c["datum"] . "</td>";
 					echo "<td id=\"" . $c["id"] . "\">". $c["bname"] . "</td>";
@@ -39,9 +40,10 @@ include_once("../sql/mysql_connect.php");
 					echo "<td class=\"table-large\" id=\"" . $c["id"] . "\">". $c["taetigkeit"] . "</td>";
 					echo "<td class=\"table-large\" id=\"" . $c["id"] . "\">". $c["bemerkung"] . "</td>";
 					echo "</tr>";
+					echo "</a>";
 				}
 			 ?>	
 		</tbody>
 	</table>
 
-
+<script src="js/tableAufwand.js"></script>
