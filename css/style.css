@@ -137,3 +137,8 @@ body {
 .table-small {
 	width: 50px;
 }
+
+#table-aufwand tr:hover td{
+	border: 1.01px solid grey;
+	background-color: #d9edf7;
+}
