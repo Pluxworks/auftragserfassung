@@ -57,7 +57,7 @@
           </ul>
 		  <h3>Administration</h3>
           <ul class="nav nav-sidebar">
-            <li><a href="#">Mitarbeiter bearbeiten</a></li>
+            <li id="btabelle"><a href="#">Bereiche bearbeiten</a></li>
             <li><a href="#">Kunden bearbeiten</a></li>
           </ul>
 		  <h3>Statistik</h3>
