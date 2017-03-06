@@ -23,6 +23,7 @@ $(function(){
 	$( "li#atabelle" ).click(function() {
 		$('li#atabelle').addClass("active");
 		$('li#aeintragen').removeClass("active");
+		$('li#btabelle').removeClass("active");
 		reload_with_tableAufwand();
 		
 	});
@@ -30,7 +31,15 @@ $(function(){
 	$( "li#aeintragen" ).click(function() {
 		$('li#aeintragen').addClass("active");
 		$('li#atabelle').removeClass("active");
+		$('li#btabelle').removeClass("active");
 		reload_with_formAufwand();
+	});
+	
+	$( "li#btabelle" ).click(function() {
+		$('li#btabelle').addClass("active");
+		$('li#atabelle').removeClass("active");
+		$('li#aeintragen').removeClass("active");
+		reload_with_tableBereich();
 	});
 	
 	$( "#aufwandsaveButton" ).click(function() {
@@ -51,6 +60,12 @@ function reload_with_tableAufwand(){
 
 function reload_with_formAufwand(){
 		$.get("php/formAufwand.php", function(data) {
+        $("div#content").html(data);
+		});
+}
+
+function reload_with_tableBereich(){
+		$.get("php/tableBereich.php", function(data) {
         $("div#content").html(data);
 		});
 }
