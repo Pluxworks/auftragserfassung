@@ -139,6 +139,6 @@ body {
 }
 
 #table-aufwand tr:hover td{
-	border: 1.01px solid grey;
+	border: 1px double grey;
 	background-color: #d9edf7;
 }
