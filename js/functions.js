@@ -24,6 +24,9 @@ $(function(){
 		$('li#atabelle').addClass("active");
 		$('li#aeintragen').removeClass("active");
 		$('li#btabelle').removeClass("active");
+		$('li#bkunde').removeClass("active");
+		$('li#suebersicht').removeClass("active");
+		$('li#sboenen').removeClass("active");
 		reload_with_tableAufwand();
 		
 	});
@@ -32,6 +35,9 @@ $(function(){
 		$('li#aeintragen').addClass("active");
 		$('li#atabelle').removeClass("active");
 		$('li#btabelle').removeClass("active");
+		$('li#bkunde').removeClass("active");
+		$('li#suebersicht').removeClass("active");
+		$('li#sboenen').removeClass("active");
 		reload_with_formAufwand();
 	});
 	
@@ -39,7 +45,40 @@ $(function(){
 		$('li#btabelle').addClass("active");
 		$('li#atabelle').removeClass("active");
 		$('li#aeintragen').removeClass("active");
+		$('li#bkunde').removeClass("active");
+		$('li#suebersicht').removeClass("active");
+		$('li#sboenen').removeClass("active");
 		reload_with_tableBereich();
+	});
+	
+	$( "li#bkunde" ).click(function() {
+		$('li#bkunde').addClass("active");
+		$('li#atabelle').removeClass("active");
+		$('li#aeintragen').removeClass("active");
+		$('li#btabelle').removeClass("active");
+		$('li#suebersicht').removeClass("active");
+		$('li#sboenen').removeClass("active");
+		reload_with_tableKunde();
+	});
+	
+	$( "li#suebersicht" ).click(function() {
+		$('li#suebersicht').addClass("active");
+		$('li#atabelle').removeClass("active");
+		$('li#aeintragen').removeClass("active");
+		$('li#btabelle').removeClass("active");
+		$('li#bkunde').removeClass("active");
+		$('li#sboenen').removeClass("active");
+		reload_with_statistikUeberischt();
+	});
+	
+	$( "li#sboenen" ).click(function() {
+		$('li#sboenen').addClass("active");
+		$('li#suebersicht').removeClass("active");
+		$('li#atabelle').removeClass("active");
+		$('li#aeintragen').removeClass("active");
+		$('li#btabelle').removeClass("active");
+		$('li#bkunde').removeClass("active");
+		reload_with_statistikBoenen();
 	});
 	
 	$( "#aufwandsaveButton" ).click(function() {
@@ -66,6 +105,24 @@ function reload_with_formAufwand(){
 
 function reload_with_tableBereich(){
 		$.get("php/tableBereich.php", function(data) {
+        $("div#content").html(data);
+		});
+}
+
+function reload_with_tableKunde(){
+		$.get("php/tableKunde.php", function(data) {
+        $("div#content").html(data);
+		});
+}
+
+function reload_with_statistikUeberischt(){
+		$.get("php/statistikUebersicht.php", function(data) {
+        $("div#content").html(data);
+		});
+}
+
+function reload_with_statistikBoenen(){
+		$.get("php/statistikBoenen.php", function(data) {
         $("div#content").html(data);
 		});
 }
