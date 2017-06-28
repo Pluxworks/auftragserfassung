@@ -31,4 +31,4 @@
 				</div>
 
 
-<script src="js/aufwand.js"></script>
+<script src="js/bereich.js"></script>
