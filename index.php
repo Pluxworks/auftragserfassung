@@ -58,11 +58,12 @@
 		  <h3>Administration</h3>
           <ul class="nav nav-sidebar">
             <li id="btabelle"><a href="#">Bereiche bearbeiten</a></li>
-            <li><a href="#">Kunden bearbeiten</a></li>
+            <li id="bkunde"><a href="#">Kunden bearbeiten</a></li>
           </ul>
 		  <h3>Statistik</h3>
           <ul class="nav nav-sidebar">
-            <li><a href="#">Bönen</a></li>
+			<li id="suebersicht"><a href="#">Übersicht</a></li>
+            <li id="sboenen"><a href="#">Bönen</a></li>
           </ul>
         </div>
     
@@ -150,10 +151,12 @@
     ================================================== -->
     <!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
     <script src="./js/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 	<script src="./js/bootstrap-datepicker.js"></script>
 	<script src="./js/bootstrap-datepicker.de.min.js"></script>
 	<script src="./js/functions.js"></script>
+	<script src="./js/morris.min.js"></script>
     
   </body>
 </html>
