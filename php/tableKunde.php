@@ -7,18 +7,20 @@ include_once("../sql/mysql_connect.php");
 		<thead>
 			<tr>
                 <th>ID</th>
-                <th>Bereich</th>
+                <th>Kunde</th>
+				<th>Kürzel</th>
             </tr>
         </thead>
 		<tbody>
 			<?php
-				$sql_aufwand_liste = "SELECT * FROM bereich";
-				$result_aufwand_liste = mysqli_query($connection, $sql_aufwand_liste);
-				while($c = mysqli_fetch_array($result_aufwand_liste)) {
+				$sql_kunde = "SELECT * FROM kunden";
+				$result_kunde = mysqli_query($connection, $sql_kunde);
+				while($c = mysqli_fetch_array($result_kunde)) {
 					echo "<a id=\"" . $c["id"] . "\" href=\"# " . $c["id"] .  "\">";
 					echo "<tr id=\"" . $c["id"] . "\">";
 					echo "<td id=\"" . $c["id"] . "\">". $c["id"] . "</td>";
 					echo "<td id=\"" . $c["id"] . "\">". $c["name"] . "</td>";
+					echo "<td id=\"" . $c["id"] . "\">". $c["kuerzel"] . "</td>";
 					echo "</tr>";
 					echo "</a>";
 				}
@@ -26,8 +28,8 @@ include_once("../sql/mysql_connect.php");
 		</tbody>
 	</table>
 	
-	<div id="bereichButtons" class="center-block">
-					<button id="newBereichButton" class="btn btn-success" type="submit" name="newBereich">Neuen Bereich anlegen</button>
+	<div id="kundeButtons" class="center-block">
+					<button id="newKundeButton" class="btn btn-success" type="submit" name="newKunde">Neuen Kunden anlegen</button>
 	</div>
 
-<script src="js/bereich.js"></script>
+<script src="js/kunde.js"></script>
