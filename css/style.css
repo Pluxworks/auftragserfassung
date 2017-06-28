@@ -142,3 +142,11 @@ body {
 	border: 1px double grey;
 	background-color: #d9edf7;
 }
+
+/*
+ * Statistik Seiten
+ */
+ 
+.statcontent {
+	text-align:left;
+}
